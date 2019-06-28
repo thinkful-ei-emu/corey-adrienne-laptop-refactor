@@ -7,17 +7,17 @@ class AddToCart extends React.Component {
 
     render(){
         let summary;
-        return (
-        summary = Object.keys(this.state.selected)
+        
+        return (Object.keys(this.props.selected)
             .map(key => <div className="summary__option" key={key}>
             <div className="summary__option__label">{key}  </div>
-            <div className="summary__option__value">{this.state.selected[key].name}</div>
+            <div className="summary__option__value">{this.props.selected[key].name}</div>
             <div className="summary__option__cost">
                 { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                    .format(this.state.selected[key].cost) }
+                    .format(this.props.selected[key].cost) }
             </div>
         </div>)
-        )   
+        )
     }
 }
 export default AddToCart
