@@ -3,12 +3,13 @@ import './App.css';
 import Header from './Component/Header'
 import Specs from './Component/Specs'
 import Cart from './Component/Cart'
-// import Item from './Component/Item'
-// import TotalPrice from './Component/TotalPrice'
+import Item from './Component/Item'
+import TotalPrice from './Component/TotalPrice'
 
 class App extends Component {
   constructor(props){
     super(props);
+    console.log(this.state);
     this.state = {
       selected: {
         Processor: {
@@ -59,7 +60,7 @@ class App extends Component {
               <div className="summary__total__label">Your Price: </div>
               <div className="summary__total__value">
               { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                  .format(<TotalPrice/>) }
+                  .format(<TotalPrice />) }
               </div>
             </div>
           </section>
