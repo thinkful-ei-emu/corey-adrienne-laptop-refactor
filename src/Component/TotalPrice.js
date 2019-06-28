@@ -1,9 +1,20 @@
 import React from 'react'
 
 class TotalPrice extends React.Component {
+  
+  render() {
+    const total = Object.keys(this.props.selected)
+      .reduce((acc, curr) => acc + this.props.selected[curr].cost, 0);
+  return (
+    <>
+      <div className="summary__total__value">
+          { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
+              .format(total) }
+      </div>
+    </>)
+  }
     
-total = Object.keys(this.state.selected)
-.reduce((acc, curr) => acc + this.state.selected[curr].cost, 0);
+
 }
 
 export default TotalPrice

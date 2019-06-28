@@ -95,7 +95,8 @@ class App extends Component {
   //   }
   // }
 
-  updateFeature(feature, newValue) {
+  updateFeature = (feature, newValue) => { 
+    console.log(feature, newValue);
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -114,7 +115,7 @@ console.log(this.state.features);
           
           <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-            <Specs features={this.state.features} selected={this.state.selected}/>
+            <Specs features={this.state.features} selected={this.state.selected} updateFeature={this.updateFeature}/>
             
           </section>
           
@@ -123,10 +124,11 @@ console.log(this.state.features);
             <Cart selected={this.state.selected}/>
             <div className="summary__total">
               <div className="summary__total__label">Your Price: </div>
-              <div className="summary__total__value">
+              <TotalPrice selected={this.state.selected} />
+              {/* <div className="summary__total__value">
               { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
                   .format(this.props.total) }
-              </div>
+              </div> */}
             </div>
           </section>
 

@@ -4,16 +4,16 @@ import Item from './Item'
 class Specs extends React.Component {
     render(){
         console.log(this.props.features);
-    const features = Object.keys(this.props.features).map(key => {
-        const options = this.props.features[key].map((item, index) => {
-            console.log(options);
-            const selectedClass = item.name === this.props.selected[key].name ? 'feature__selected' : '';
+    const features = Object.keys(this.props.features).map(category => {
+        const options = this.props.features[category].map((item, index) => {
+            // console.log(key);
+            const selectedClass = item.name === this.props.selected[category].name ? 'feature__selected' : '';
             const featureClass = 'feature__option ' + selectedClass;
-            return <Item featureClass={featureClass} key={index} index={index} item={item}/>
+            return <Item featureClass={featureClass} category={category} index={index} item={item} updateFeature={this.props.updateFeature}/>
         });
         return (
-            <div className="feature" key={key}>
-                <div className="feature__name">{key}</div>
+            <div className="feature" key={category}>
+                <div className="feature__name">{category}</div>
                 <ul className="feature__list">
                     { options }
                 </ul>

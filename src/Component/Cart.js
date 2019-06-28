@@ -1,13 +1,8 @@
 import React from 'react'
-import TotalPrice from './TotalPrice'
 
 class AddToCart extends React.Component {
 
-// console.log('ADDtoCART')
-
     render(){
-        let summary;
-        
         return (Object.keys(this.props.selected)
             .map(key => <div className="summary__option" key={key}>
             <div className="summary__option__label">{key}  </div>
