@@ -6,6 +6,7 @@ class AddToCart extends React.Component {
 // console.log('ADDtoCART')
 
     render(){
+        let summary;
         return (
         summary = Object.keys(this.state.selected)
             .map(key => <div className="summary__option" key={key}>
